@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>Big Mart Sales Prediction</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Predict Your Sales</h1>
+
+    <div class="form">
+        <form action="/predict" method="POST">
+            <input type="float" name="Item_Weight" id="Item_Weight" placeholder="Item_Weight">
+
+            <label for="Item_Fat_Content">Item_Fat_Content</label>
+            <select  name="Item_Fat_Content" id="Item_Fat_Content" >
+                <option value="Low Fat">Low Fat</option>
+                <option value="Regular">Regular</option>
+            </select>
+            <input type="float" name="Item_Visibility" id="Item_Visibility" placeholder="Item_Visibility Rating">
+            <label for="Item_Type">Item_Type</label>
+            <select  name="Item_Type" id="Item_Type" >
+                <option value="Dairy">Dairy</option>
+                <option value="Soft Drinks">Soft Drinks</option>
+                <option value="Meat">Meat</option>
+                <option value="Fruits and Vegetables">Fruits and Vegetables</option>
+                <option value="Household">Household</option>
+                <option value="Snack Foods">Snack Foods</option>
+                <option value="Baking Goods">Baking Goods</option>
+                <option value="Frozen Foods">Frozen Foods</option>
+                <option value="Health and Hygiene">Health and Hygiene</option>
+                <option value="Hard Drinks">Hard Drinks</option>
+                <option value="Canned">Canned</option>
+                <option value="Breads">Breakfast</option>
+                <option value="Starchy Foods">Starchy Foods</option>
+                <option value="Seafood">Seafood</option>
+                <option value="Others">Others</option>
+
+            </select>
+            <input type="float" name="Item_MRP" id="Item_MRP" placeholder="Item_MRP">
+            <label for="Outlet_Establishment_Year">Establishment year</label>
+            <input type="number" min="1900" max="2099" step="1" value="2016" name="Outlet_Establishment_Year" id="Outlet_Establishment_Year"placeholder="Outlet_Establishment_Year" />
+            <label for="Outlet_Size">Outlet_Size</label>
+            <select name="Outlet_Size" id =Outlet_Size>
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select>
+            <label for = "Outlet_Location_Type">Outlet_Location_Type</label>
+            <select name ="Outlet_Location_Type" id ="Outlet_Location_Type">
+                <option value="Tier1">Tier1</option>
+                <option value="Tier2">Tier2</option>
+                <option value="Tier3">Tier3</option>
+            </select>
+            <label for="Outlet_Type">Outlet_Type</label>
+            <select name="Outlet_Type" id ="Outlet_Type">
+                <option value="Supermarket Type1">Supermarket Type1</option>
+                <option value="Supermarket Type2">Supermarket Type2</option>
+                <option value="Supermarket Type3">Supermarket Type3</option>
+                <option value="Grocery Store">Grocery Store</option>
+            </select>
+            <input type="submit" value="Predict">
+        </form>
+    </div>
+</div>
+{% endblock %}
