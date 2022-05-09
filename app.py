@@ -1,15 +1,15 @@
 from flask import Flask, render_template, request
 import pickle
 
-application = Flask(__name__)
+app = Flask(__name__)
 
 
-@application.route('/', methods= ['GET', 'POST'])
+@app.route('/', methods= ['GET', 'POST'])
 
 def homePage():
     return render_template("index.html")
 
-@application.route('/predict', methods= ['POST'])
+@app.route('/predict', methods= ['POST'])
 
 def prediction():
     try:
@@ -73,4 +73,4 @@ def prediction():
     
     
 if __name__ == '__main__':
-    application.run(port=4000,debug=True)
+    app.run(port=4000,debug=True)
